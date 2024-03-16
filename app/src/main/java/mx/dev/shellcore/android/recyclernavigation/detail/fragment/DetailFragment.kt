@@ -10,17 +10,6 @@ import mx.dev.shellcore.android.recyclernavigation.databinding.FragmentDetailBin
 
 class DetailFragment : Fragment() {
 
-    companion object {
-        private var _instance: DetailFragment? = null
-
-        fun getInstance(): DetailFragment {
-            if (_instance == null) {
-                _instance = DetailFragment()
-            }
-            return _instance!!
-        }
-    }
-
     var info: Info? = null
 
     private val binding by lazy {

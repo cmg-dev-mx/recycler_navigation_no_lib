@@ -25,13 +25,15 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val listFragment = ListFragment.getInstance { selectedInfo ->
-            supportFragmentManager.beginTransaction()
-                .replace(binding.mainFragmentContainer.id, DetailFragment.getInstance().apply {
-                    this.info = selectedInfo
-                })
-                .addToBackStack(null)
-                .commit()
+        val listFragment = ListFragment().apply {
+            onClickListener = { selectedInfo ->
+                supportFragmentManager.beginTransaction()
+                    .replace(binding.mainFragmentContainer.id, DetailFragment().apply {
+                        info = selectedInfo
+                    })
+                    .addToBackStack(null)
+                    .commit()
+            }
         }
 
 

@@ -16,20 +16,7 @@ import mx.dev.shellcore.android.recyclernavigation.list.adapter.ListAdapter
 
 class ListFragment : Fragment() {
 
-    companion object {
-        private var _instance: ListFragment? = null
-
-        fun getInstance(onClickListener: (Info) -> Unit): ListFragment {
-            if (_instance == null) {
-                _instance = ListFragment().apply {
-                    this.onClickListener = onClickListener
-                }
-            }
-            return _instance!!
-        }
-    }
-
-    private var onClickListener: (Info) -> Unit = {}
+    var onClickListener: (Info) -> Unit = {}
 
     private val binding by lazy {
         FragmentListBinding.inflate(layoutInflater)
